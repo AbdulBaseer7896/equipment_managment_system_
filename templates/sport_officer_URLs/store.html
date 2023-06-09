@@ -1,0 +1,88 @@
+{% extends 'sport_officer_URLs/sport_officer_temp.html' %}
+
+
+{% block title %}
+Sport Officer | Store
+{% endblock title %}
+
+{% block mainbody %}
+
+
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+{% for message, category in messages %}
+
+{% if category == 'student_login' %}
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+    <h4 class="alert-heading">{{ message }}
+        <button type="button" class="close" item-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </h4>
+</div>
+{% elif category == 'no_notifiction_for_student' %}
+<div class="alert alert-dark alert-dismissible fade show" role="alert">
+    <h4 class="alert-heading">{{ message }}
+        <button type="button" class="close" item-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </h4>
+</div>
+
+
+{% endif %}
+{% endfor %}
+{% endif %}
+
+{% endwith %}
+
+
+
+
+
+<h1> This is sport officer Store page</h1>
+
+
+<div class="container">
+  
+  <div class="border-bottom row" style="margin-bottom:16px;padding-bottom:8px;">
+    {% for item in store_data %}
+        
+    <div class="col-6" style="font-size: medium;">
+        <h4 
+        style="color:rgb(120,120,120); margin-bottom:4px;">
+    </h4>
+    <br>
+    <div>
+      Product Name: {{item[0]}}
+    </div>
+
+    <div>
+        Product Type: <b>{{item[3]}}</b>
+    </div>
+    <div>
+        Total Number of Producr: <b>{{item[1]}}</b>
+    </div>
+    <div>
+        Avaible in store: <b>{{item[2]}}</b>
+    </div>
+    <div>
+        Product Descipation: <b>{{item[4]}}</b>
+    </div>
+    
+  </div>
+  <div class="col-2 padding-right:16px">
+      <img style="width: 180px; height: 200px;" src="/static/{{item[5]}}" alt="image">
+    </div>
+  <br><br><br>
+  <hr>
+  <br>
+  <br><br>
+  {% endfor %}
+</div>
+
+
+<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iusto cupiditate corporis perferendis minus eum obcaecati
+    velit veritatis, aliquam iste vel est earum consequuntur odio tenetur dolore. Sapiente vitae voluptate omnis.</p>
+
+{% endblock mainbody %}

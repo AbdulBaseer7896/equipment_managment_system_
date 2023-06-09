@@ -1,0 +1,88 @@
+{% extends 'publi_temp.html' %}
+
+
+{% block title %}
+IQRA EDUCATION SYSTEM | Log In
+{% endblock title %}
+
+{% block mainbody %}
+
+
+{% with messages = get_flashed_messages() %}
+    {% if messages %}
+        {% for message, category in messages %}
+        {% if category == 'student_login' %}
+            <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+                <h4 class="alert-heading">{{ message }}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </h4>
+            </div>
+            {% elif category == 'same_id_or_cnic_number' %}
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <h4 class="alert-heading">{{ message }}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </h4>
+            </div>
+            {% elif category == 'sign_done' %}
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <h4 class="alert-heading">{{ message }}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </h4>
+            </div>
+            {% elif category == 'fail_login' %}
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <h4 class="alert-heading">{{ message }}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </h4>
+            </div>
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+{% endwith %}
+
+
+
+<div class=" container big-font">
+    <form action="{{ url_for('login') }}" method="post">
+        <br>
+        <h1 style="text-align: center;">Kindly Log In</h1>
+        <br>
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Email address</label>
+            <input name="email_login" type="email" class="form-control" id="exampleInputEmail1"
+                aria-describedby="emailHelp">
+            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Password</label>
+            <input name="password_login" type="password" class="form-control" id="exampleInputPassword1">
+        </div>
+
+        <div>
+            <select name="login-val" id="usertypes" class="form-select" aria-label="Default select example">
+                <option selected> Select you User Type </option>
+                <option value='student' name="login-val">Student</option>
+                <option value='sport_officer' name="login-val">Sport Officer</option>
+                <option value='dispach_man' name="login-val">Dispach Man</option>
+            </select>
+        </div>
+        <br>
+        <input type="submit" class="btn btn-primary"></input>
+
+        <br>
+        <br><br>
+        <a href= "{{url_for('sign_up_for_student') }}">Sign Up</a>
+        <!-- <a href="url_for('forget_password')">Forget Password</a> -->
+    </form>
+</div>
+<br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+{% endblock mainbody %}

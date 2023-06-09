@@ -1,0 +1,89 @@
+{% extends 'sport_officer_URLs/sport_officer_temp.html' %}
+
+
+
+{% block title %}
+Sport Officer | Add Equipments
+{% endblock title %}
+
+{% block mainbody %}
+
+<h1> This is sport officer add equipment page</h1>
+
+<div class=" container big-font">
+    <form action="{{ url_for('add_new_equipments') }}" method="post" enctype="multipart/form-data">
+
+
+        <!-- product_name -->
+        <div class="row">
+            <div class="col-md-3">
+                <div class="mb-3">
+                    <label for="product_name" class="form-label">Name of Product</label>
+                    <input name="product_name" value="" type="text" class="form-control" id="product_name"
+                        aria-describedby="product_name" required>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="mb-3">
+                    <label for="quantity_of_product" class="form-label">Quantity of product</label>
+                    <input name="quantity_of_product" value="" class="form-control" id="quantity_of_product"
+                        aria-describedby="quantity_of_product" type="number" required>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="mb-3">
+                    <label for="type_of_product" class="form-label">For which Type of sport</label>
+                    <!-- <input name="type_of_product" value="" class="form-control" id="type_of_product"
+                        aria-describedby="type_of_product" type="text"> -->
+
+                        <select name="type_of_product" value =""  id="type_of_product" class="form-select"   aria-label="Default select example" required>
+                            <option value=""  disabled selected hidden> Select your class type</option>
+                                <option value="Cricket">Cricket</option>
+                                <option value="Badminton">Badminton</option>
+                                <option value="Football">Football</option>
+                                <option value="Tennis">Tennis</option>
+                                <option value="BasketBall">BasketBall</option>
+                        </select>
+                </div>
+            </div>
+            
+            <div class="col-md-3">
+                <div class="mb-3">
+                    <label  class="form-label">Picture of Product</label>
+                    <input name="image_of_product" class="form-control" type="file">
+                </div>
+            </div>
+
+
+
+        </div>
+
+
+        <!-- Father name of teacher -->
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="mb-3">
+                    <label for="descipation" class="form-label">Write the descipation of Product</label>
+                    <!-- <input name="descipation"  type="text" class="form-control" id="descipation"
+                        aria-describedby="descipation" > -->
+                    <textarea name="descipation" type="text" class="form-control" id="descipation"
+                        aria-describedby="descipation" rows="4" cols="50" placeholder="Type some thing about Product" ></textarea>
+                </div>
+            </div>
+        </div>
+
+        <br>
+        <input type="submit" class="btn btn-primary"></input>
+        
+        
+    </div>
+<br>
+<br><br>
+
+</form>
+</div>
+
+<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iusto cupiditate corporis perferendis minus eum obcaecati velit veritatis, aliquam iste vel est earum consequuntur odio tenetur dolore. Sapiente vitae voluptate omnis.</p>
+{% endblock mainbody %}

@@ -1,0 +1,250 @@
+{% extends 'student_URLs/student_temp.html' %}
+
+
+{% block title %}
+PAF-IAST SEIMS | Sign Up
+{% endblock title %}
+
+{% block mainbody %}
+
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+{% for message, category in messages %}
+{% if category == 'new_student_data' %}
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+    <h4 class="alert-heading">{{ message }}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </h4>
+</div>
+{% endif %}
+{% endfor %}
+{% endif %}
+{% endwith %}
+
+
+<div class=" container big-font">
+    <form action="{{ url_for('sign_up_for_student') }}" method="POST" enctype="multipart/form-data">
+        <br>
+        <h1 style="text-align: center;">Enter You Personal Information</h1>
+        <br>
+
+
+        <!-- Name of student -->
+        <div class="row">
+            <div class="col-md-6">
+                <div class="mb-3">
+                    <label for="student_name" class="form-label">Enter You Name (As per B-Form)</label>
+                    <input name="student_name" placeholder="Abdul Baseer"  type="text"
+                        class="form-control" id="student_name" aria-describedby="student_name" maxlength="35" minlength="3" required>
+                </div>
+            </div>
+            <div class="col-md-6">
+
+
+<!-- Form B number of student -->
+<div class="mb-3">
+    <label for="B_form_number" class="form-label">Enter You B-Form Number</label>
+    <input name="B_form_number"  maxlength="13" minlength="13" value="" class="form-control" id="B_form_number"
+        aria-describedby="B_form_number" type="text" placeholder="XXXXX-XXXXXXX-X" required>
+</div>
+
+
+            </div>
+        </div>
+
+
+        <!-- Father name of student -->
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="mb-3">
+                    <label for="student_email" class="form-label">Enter You University Emali Address</label>
+                    <input name="student_email" value="" type="text" maxlength="35" minlength="3" class="form-control" id="student_email"
+                        aria-describedby="student_email"  required>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <!-- CNIC numebr of fatber -->
+                <div class="mb-3">
+                    <label for="student_password" class="form-label">Enter any password of 6 digit</label>
+                    <input name="student_password" value="" type="text" class="form-control" id="student_password"
+                        aria-describedby="student_password" maxlength="6" minlength="6"  required>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Religion of student -->
+
+        <div class="row">
+            <div class="col-md-3">
+                <div class="mb-3">
+                    <label for="student_religion" class="form-label">Select Religion of student</label>
+                    <!-- <input name="student_religion" type="email" class="form-control" id="student_religion" aria-describedby="student_religion"> -->
+                    <div>
+                        <select name="student_religion" value="" id="usertypes" class="form-select"
+                            aria-label="Default select example" required>
+                            <option value="" disabled selected hidden> Select your Religion Type </option>
+                            <option value='Muslim' name="student_religion">Muslim</option>
+                            <option value='Christian' name="">Christian</option>
+                            <option value='Other' name="">Other</option>
+                        </select>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-3">
+
+                <!-- Sex / Gender of student -->
+                <div class="mb-3">
+                    <label for="student_gender" class="form-label">Selcet SEX/Gender of Student</label>
+                    <!-- <input name="student_gender" type="email" class="form-control" id="student_gender" aria-describedby="student_gender"> -->
+                    <div>
+                        <select name="student_gender" value="" id="usertypes" class="form-select"
+                            aria-label="Default select example" required>
+                            <option value=""  disabled selected hidden> Select your Gender Type </option>
+                            <option value='Male' name="student_gender">Male</option>
+                            <option value='Female' name="student_gender">Female</option>
+                            <option value='Other' name="student_gender">Other</option>
+                        </select>
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="col-md-3">
+
+
+
+                <!-- CLass Of student -->
+                <div class="mb-3">
+                    <label for="student_department" class="form-label">Select You Department Class</label>
+                    <!-- <input name="student_department" type="email" class="form-control" id="student_department" aria-describedby="student_department"> -->
+                    <select name="student_department"  id="student_department" class="form-select"
+                        aria-label="Default select example" required>
+                        <option value=""  disabled selected hidden> Select your class Type </option>
+                        <option value='pg' name="student_department">IT and CS</option>
+                        <option value='perp' name="student_department">Chemistry</option>
+                        <option value='perp' name="student_department">Eletricital</option>
+                        <option value='kg' name="student_department">BMS</option>
+                        <option value='Class 1' name="student_department">MTY</option>
+                        <option value='Class 1' name="student_department">Other</option>
+                    </select>
+
+                </div>
+
+
+            </div>
+            <div class="col-md-3">
+
+                <!-- Date of Birth of student -->
+                <div class="mb-3">
+                    <label for="student_dob" class="form-label">Enter the Student Date of Birth</label>
+                    <input name="student_dob" value="" type="date" class="form-control" id="student_dob"
+                        aria-describedby="student_dob" required>
+                </div>
+
+            </div>
+        </div>
+
+
+
+
+        <!-- Student Picture -->
+        <div class="row">
+            <div class="col-md-3">
+                <div class="mb-3">
+                    <label class="form-label">Student Image</label>
+                    <input name="student_image" type="file" class="form-control">
+                </div>
+            </div>
+
+            <!-- WhatsApp number of student -->
+            <div class="col-md-3">
+                <div class="mb-3">
+                    <label for="whatsApp_number" class="form-label">Enter WhatsApp Number</label>
+                    <input name="whatsApp_number" value="" class="form-control" id="whatsApp_number"
+                        aria-describedby="whatsApp_number" type="number" maxlength="11" minlength="10"
+                        data-inputmask="'mask': '0300-000000-0'" placeholder="03XX-XXXXXX-X" required>
+                </div>
+
+            </div>
+            <div class="col-md-3">
+
+                <!-- class in which lasts studying -->
+                <div class="mb-3">
+                    <label for="student_program" class="form-label">Select You Program</label>
+                    <!-- <input name="student_program" type="email" class="form-control" id="student_program" aria-describedby="student_program"> -->
+                    <select name="student_program" value="" id="student_program" class="form-select"
+                        aria-label="Default select example" required>
+                        <option value=""  disabled selected hidden> Select your class Type </option>
+                        <option value='pg' name="student_program">DS</option>
+                        <option value='perp' name="student_program">AI</option>
+                        <option value='kg' name="student_program">CS</option>
+                        <option value='Class 1' name="student_program">SE</option>
+                        <option value='Class 2' name="student_program">EE</option>
+                        <option value='Class 3' name="student_program">CE</option>
+                        <option value='Class 4' name="student_program">BMS</option>
+                        <option value='Class 5' name="student_program">BTY</option>
+                        <option value='Class 6' name="student_program">Other</option>
+
+                    </select>
+                </div>
+
+
+
+            </div>
+            <div class="col-md-3">
+
+                <!-- Blood Group -->
+                <div class="mb-3">
+                    <label for="student_blood" class="form-label">Select Blood Group of Student</label>
+                    <!-- <input name="student_blood" type="email" class="form-control" id="student_blood" aria-describedby="student_blood"> -->
+
+                    <select name="student_blood" value="" id="student_blood" class="form-select"
+                        aria-label="Default select example">
+                        <option value=""  disabled selected hidden> Select your Blood Group Type </option>
+                        <option value='A+' name="student_program">A RhD positive (A+)</option>
+                        <option value='A-' name="student_program">A RhD negative (A-)</option>
+                        <option value='B+' name="student_program">B RhD positive (B+)</option>
+                        <option value='B-' name="student_program">B RhD negative (B-)</option>
+                        <option value='O+' name="student_program">O RhD positive (O+)</option>
+                        <option value='O-' name="student_program">O RhD negative (O-)</option>
+                        <option value='AB+' name="student_program">AB RhD positive (AB+)</option>
+                        <option value='AB-' name="student_program">AB RhD negative (AB-)</option>
+                        <option value='None' name="student_program">Not conformed</option>
+                    </select>
+
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Elective subjects -->
+        <div class="mb-3">
+            <label for="favourit_sport"  class="form-label">Enter the Favourit Sport</label>
+            <input name="favourit_sport" placeholder="Math Physicas Chemistry Computer"  value="" type="text" class="form-control"
+                id="favourit_sport" aria-describedby="favourit_sport" maxlength="100" minlength="4">
+        </div>
+
+        <!-- Address of student  -->
+        <div class="mb-3">
+            <label for="student_address"  class="form-label">Enter You Home Address</label>
+            <input name="student_address" value=""   placeholder="Mohalla Awaisia Town, Pindi Gheb - Attock Rd, Pindigheb, Attock, Punjab , Pakistan" type="text" class="form-control" id="student_address"
+                aria-describedby="student_address" maxlength="80" minlength="10" required>
+        </div>
+
+
+</div>
+<br>
+<input type="submit" class="btn btn-primary"></input>
+
+<br>
+<br><br>
+</form>
+</div>
+<br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+{% endblock mainbody %}
