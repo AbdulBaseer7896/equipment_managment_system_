@@ -28,8 +28,17 @@ Student | HOME
         </button>
     </h4>
 </div>
-{% elif category == 'book_now_student' %}
+{% elif category == 'booking_request_send' %}
 <div class="alert alert-success alert-dismissible fade show" role="alert">
+    <h4 class="alert-heading">{{ message }}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </h4>
+</div>
+
+{% elif category == 'no_booking_approved' %}
+<div class="alert alert-danger alert-dismissible fade show" role="alert">
     <h4 class="alert-heading">{{ message }}
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>

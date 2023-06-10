@@ -2,7 +2,7 @@
 
 
 {% block title %}
-Sport Officer | Cancle Booking
+Sport Officer | Approved Booking
 {% endblock title %}
 
 {% block mainbody %}
@@ -40,7 +40,7 @@ Sport Officer | Cancle Booking
 
 
 
-<h1> This is sport officer cancle booking page</h1>
+<h1> This is sport officer Approved booking page</h1>
 
 
 <div class="container">
@@ -48,6 +48,7 @@ Sport Officer | Cancle Booking
   <div class="border-bottom row" style="margin-bottom:16px;padding-bottom:8px;">
     {% for item in booking_data %}
     {% if item[4] > 0 %}
+        
     <div class="col-6" style="font-size: medium;">
         <h4 
         style="color:rgb(120,120,120); margin-bottom:4px;">
@@ -58,20 +59,20 @@ Sport Officer | Cancle Booking
     </div>
 
     <div>
-        Products Type:<b>{{item[1]}}</b>
+        Products Type:<b>{{item[2]}}</b>
     </div>
     <div>
-        Student Email:<b>{{item[2]}}</b>
+        Student Email:<b>{{item[4]}}</b>
     </div>
     <div>
-        Date of Booking:<b>{{item[3]}}</b>
+        Date of Booking:<b>{{item[4]}}</b>
     </div>
     <div>
         Total Number of Products:<b>{{item[4]}}</b>
     </div>
       <div>
-        <form id="booking-form" action="{{ url_for('cancal_booking', path=item) }}" method="POST">
-            <button type="submit" class="btn btn-primary">Cancle Booking</button>
+        <form id="booking-form" action="{{ url_for('approved_booding', path=item) }}" method="POST">
+            <button type="submit" class="btn btn-primary">Approved Booking</button>
         </form>
     </div>
     

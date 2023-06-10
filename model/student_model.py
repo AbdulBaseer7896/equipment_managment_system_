@@ -67,10 +67,6 @@ class student_model():
                 query2 = text(f"INSERT INTO equipmetns_booking VALUES ('{path[0]}', '{path[3]}' , '{data['email_login']}' ,'{formatted_datetime}' , 1 , '{path[5]}');")
                 conn.execute(query2)
                 print("its eassu")
-           
-            query3 = text(f"Update  equipments  SET   avaiable_product = (avaiable_product - 1)  WHERE product_name = '{path[0]}' AND type_of_product = '{path[3]}';")
-            conn.execute(query3)
-            print("it also works")
             return True
         
         
@@ -78,10 +74,11 @@ class student_model():
         print("The data os s = = = =", data)
         print("The data os s = = = =", data['email_login'])
         with self.engine.connect() as conn:
-            query1 = text(f"SELECT * FROM equipmetns_booking where  student_email =  '{data['email_login']}';")
+            query1 = text(f"SELECT * FROM equipmetns_booking_approved where  student_email =  '{data['email_login']}';")
             result = conn.execute(query1).fetchall()
             return result
         
+    
         
 
 

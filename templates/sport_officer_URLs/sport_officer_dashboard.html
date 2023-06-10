@@ -37,7 +37,23 @@ Sport Officer | HOME
     </h4>
 </div>
 
+{% elif category == 'approved_booking' %}
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+    <h4 class="alert-heading">{{ message }}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </h4>
+</div>
 
+{% elif category == 'you_not_approved_booking' %}
+<div class="alert alert-dark alert-dismissible fade show" role="alert">
+    <h4 class="alert-heading">{{ message }}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </h4>
+</div>
 
 {% endif %}
 {% endfor %}

@@ -53,6 +53,23 @@ def store():
     
     
     
+ 
+
+@app.route('/sport_officer/approved_booding' ,  methods=["GET", "POST"] )
+@login_required('sport_officer')
+def approved_booding():
+    data = request.args.get('data')
+    booking_data = obj.take_booking_data_form_db()
+    if request.method == "GET":
+        return render_template('sport_officer_URLs/approved_booding.html' , data = data , booking_data = booking_data)
+    if request.method == "POST":
+        path = request.args.get('path')
+        result = str(path) 
+        cancle_booking_data = eval(result)
+        print("This data = = = " , cancle_booking_data)
+        obj.send_approved_booking_data_to_db(cancle_booking_data)
+        flash(("You Approved the Booking succesfully !!!" , "approved_booking"))
+        return render_template('sport_officer_URLs/sport_officer_dashboard.html' , data = data )
     
 
 
@@ -60,9 +77,15 @@ def store():
 @login_required('sport_officer')
 def cancal_booking():
     data = request.args.get('data')
-    booking_data = obj.take_booking_data_form_db()
-    if request.method == "GET":
-        return render_template('sport_officer_URLs/cancal_booking.html' , data = data , booking_data = booking_data)
+    booking_data = obj.take_booking_approval_data_form_db()
+    print("This booking data ==== " , booking_data)
+    if booking_data != []:   
+        if request.method == "GET":
+            return render_template('sport_officer_URLs/cancal_booking.html' , data = data , booking_data = booking_data)
+    else:
+        flash(("Till Now you will not Approved any Booking !!!" , "you_not_approved_booking"))
+        return render_template('sport_officer_URLs/sport_officer_dashboard.html' , data = data )
+    
     if request.method == "POST":
         path = request.args.get('path')
         result = str(path) 

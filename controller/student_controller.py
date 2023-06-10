@@ -57,7 +57,7 @@ def book_equipment():
         result = str(path) 
         path_new = eval(result)
         obj.stored_the_booking_information_in_bd(path_new , data_new)
-        flash(("You will book the equipment Successfully !!!" , 'book_now_student'))
+        flash(("You booking request is send to Sport Officer !!! Wait For Booking Approal !!!" , 'booking_request_send'))
         return render_template('student_URLs/student_dashboard.html' , data = data)
 
 
@@ -75,5 +75,9 @@ def cheek_booking_aprovalment():
     booking_data = obj.take_student_booking_data_form_db(data_new)
 
     print("The pate hsog jios  = " , booking_data)
-    if request.method == "GET":
-        return render_template('student_URLs/cheek_booking_aproval.html' , data = data  , booking_data = booking_data )
+    if booking_data != []:
+        if request.method == "GET":
+            return render_template('student_URLs/cheek_booking_aproval.html' , data = data  , booking_data = booking_data )
+    else:
+        flash(("Sorry Stort Officer will not Approved you Booking!!! Kindly Wait untill You Bookin Approved" , 'no_booking_approved'))
+        return render_template('student_URLs/student_dashboard.html' , data = data)

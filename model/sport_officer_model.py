@@ -6,7 +6,7 @@ from sqlalchemy import create_engine, text
 import os
 import mysql.connector
 from datetime import datetime
-
+import datetime
 
 
 # just a moder
@@ -54,6 +54,33 @@ class sport_officer_model():
             cheek = conn.execute(query1).fetchall()
             return cheek
         
+    def take_booking_approval_data_form_db(self):
+        with self.engine.connect() as conn:
+            query1 = text(f"SELECT * From equipmetns_booking_approved;")
+            cheek = conn.execute(query1).fetchall()
+            return cheek
+        
+        
+    def send_approved_booking_data_to_db(self , data):
+        print("This isj oifaj o data = = - = = important" , data)
+        print("This isj oifaj o data = = - = = " , data[0])
+        current_datetime = datetime.datetime.now()
+        formatted_datetime = current_datetime.strftime("%Y-%m-%d %H:%M:%S, %A")
+        with self.engine.connect() as conn:
+            
+                query2 = text(f"Update  equipments  SET  avaiable_product = (avaiable_product - {data[4]})  WHERE product_name = '{data[0]}' AND type_of_product = '{data[1]}';")
+                conn.execute(query2)
+                query2 = text(f"INSERT INTO equipmetns_booking_approved VALUES ('{data[0]}', '{data[1]}' , '{data[2]}' ,'{data[3]}' , '{data[4]}' , '{data[5]}');")
+                conn.execute(query2)
+                print("its eassu")
+                
+                
+                query3 = text(f"DELETE From equipmetns_booking where product_name = '{data[0]}' And product_type = '{data[1]}' And student_email = '{data[2]}';")
+                conn.execute(query3)
+                print("They all run goood")
+        return True
+        
+        
     def cancle_booking_data_from_db(self , data):
         print("This isj oifaj o data = = - = = " , data)
         print("This isj oifaj o data = = - = = " , data[0])
@@ -61,7 +88,7 @@ class sport_officer_model():
             query1 = text(f"Update  equipments  SET  avaiable_product = (avaiable_product + {data[4]})  WHERE product_name = '{data[0]}' AND type_of_product = '{data[1]}';")
             conn.execute(query1)
             
-            query2 = text(f"DELETE FROM equipmetns_booking WHERE product_name = '{data[0]}' AND product_type = '{data[1]}' AND student_email = '{data[2]}' AND number_of_products = {data[4]} ;")
+            query2 = text(f"DELETE FROM equipmetns_booking_approved WHERE product_name = '{data[0]}' AND product_type = '{data[1]}' AND student_email = '{data[2]}' AND number_of_products = {data[4]} ;")
             conn.execute(query2)
             return True
         
