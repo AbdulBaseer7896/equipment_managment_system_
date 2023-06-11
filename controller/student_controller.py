@@ -79,5 +79,5 @@ def cheek_booking_aprovalment():
         if request.method == "GET":
             return render_template('student_URLs/cheek_booking_aproval.html' , data = data  , booking_data = booking_data )
     else:
-        flash(("Sorry Stort Officer will not Approved you Booking!!! Kindly Wait untill You Bookin Approved" , 'no_booking_approved'))
+        flash(("Sorry Sports Officer has not Approved your Booking!!! Kindly Wait untill Your Booking Will be Approved" , 'no_booking_approved'))
         return render_template('student_URLs/student_dashboard.html' , data = data)

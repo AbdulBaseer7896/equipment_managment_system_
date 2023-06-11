@@ -31,9 +31,3 @@ def sport_officer_dashboard():
     flash(('Dear Sport Officer Welcome to PAF-IAST SEIMS  !!! You Successfull Login !!!' , 'Sport_officer_login'))
     return render_template("Sport_officer_URLs/Sport_officer_dashboard.html" , data= data)
 
-@app.route('/dispach_man/dashboard')
-@login_required('dispach_man')
-def dispach_man_dashboard():
-    data = request.args.get('data')
-    flash(('Dear Dispach Officer Welcome to PAF-IAST SEIMS !!! You Successfull Login !!!' , 'dispach_man_login'))
-    return render_template('dispach_man_URLs/dispach_man_dashboard.html' , data = data)

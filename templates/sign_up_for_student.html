@@ -36,19 +36,21 @@ PAF-IAST SEIMS | Sign Up
             <div class="col-md-6">
                 <div class="mb-3">
                     <label for="student_name" class="form-label">Enter You Name (As per B-Form)</label>
-                    <input name="student_name" placeholder="Abdul Baseer"  type="text"
-                        class="form-control" id="student_name" aria-describedby="student_name" maxlength="35" minlength="3" required>
+                    <input name="student_name" placeholder="Zeeshan Siddique" type="text" class="form-control"
+                        id="student_name" aria-describedby="student_name" maxlength="35" minlength="3" required>
+
                 </div>
             </div>
             <div class="col-md-6">
 
 
-<!-- Form B number of student -->
-<div class="mb-3">
-    <label for="B_form_number" class="form-label">Enter You B-Form Number</label>
-    <input name="B_form_number"  maxlength="13" minlength="13" value="" class="form-control" id="B_form_number"
-        aria-describedby="B_form_number" type="text" placeholder="XXXXX-XXXXXXX-X" required>
-</div>
+                <!-- Form B number of student -->
+                <div class="mb-3">
+                    <label for="B_form_number" class="form-label">Enter You B-Form Number</label>
+                    <input name="B_form_number" maxlength="13" minlength="13" value="" class="form-control"
+                        id="B_form_number" aria-describedby="B_form_number" type="text" placeholder="XXXXX-XXXXXXX-X"
+                        required>
+                </div>
 
 
             </div>
@@ -61,16 +63,16 @@ PAF-IAST SEIMS | Sign Up
             <div class="col-md-6">
                 <div class="mb-3">
                     <label for="student_email" class="form-label">Enter You University Emali Address</label>
-                    <input name="student_email" value="" type="text" maxlength="35" minlength="3" class="form-control" id="student_email"
-                        aria-describedby="student_email"  required>
+                    <input name="student_email" value="" type="email"  maxlength="35" minlength="3" class="form-control"
+                        id="student_email" aria-describedby="student_email" required>
                 </div>
             </div>
             <div class="col-md-6">
                 <!-- CNIC numebr of fatber -->
                 <div class="mb-3">
                     <label for="student_password" class="form-label">Enter any password of 6 digit</label>
-                    <input name="student_password" value="" type="text" class="form-control" id="student_password"
-                        aria-describedby="student_password" maxlength="6" minlength="6"  required>
+                    <input name="student_password" value="" type="password" class="form-control" id="student_password"
+                        aria-describedby="student_password" maxlength="6" minlength="6" required>
                 </div>
 
             </div>
@@ -99,12 +101,12 @@ PAF-IAST SEIMS | Sign Up
 
                 <!-- Sex / Gender of student -->
                 <div class="mb-3">
-                    <label for="student_gender" class="form-label">Selcet SEX/Gender of Student</label>
+                    <label for="student_gender" class="form-label">Selcet Gender of Student</label>
                     <!-- <input name="student_gender" type="email" class="form-control" id="student_gender" aria-describedby="student_gender"> -->
                     <div>
                         <select name="student_gender" value="" id="usertypes" class="form-select"
                             aria-label="Default select example" required>
-                            <option value=""  disabled selected hidden> Select your Gender Type </option>
+                            <option value="" disabled selected hidden> Select your Gender Type </option>
                             <option value='Male' name="student_gender">Male</option>
                             <option value='Female' name="student_gender">Female</option>
                             <option value='Other' name="student_gender">Other</option>
@@ -122,9 +124,9 @@ PAF-IAST SEIMS | Sign Up
                 <div class="mb-3">
                     <label for="student_department" class="form-label">Select You Department Class</label>
                     <!-- <input name="student_department" type="email" class="form-control" id="student_department" aria-describedby="student_department"> -->
-                    <select name="student_department"  id="student_department" class="form-select"
+                    <select name="student_department" id="student_department" class="form-select"
                         aria-label="Default select example" required>
-                        <option value=""  disabled selected hidden> Select your class Type </option>
+                        <option value="" disabled selected hidden> Select your class Type </option>
                         <option value='pg' name="student_department">IT and CS</option>
                         <option value='perp' name="student_department">Chemistry</option>
                         <option value='perp' name="student_department">Eletricital</option>
@@ -166,7 +168,7 @@ PAF-IAST SEIMS | Sign Up
                 <div class="mb-3">
                     <label for="whatsApp_number" class="form-label">Enter WhatsApp Number</label>
                     <input name="whatsApp_number" value="" class="form-control" id="whatsApp_number"
-                        aria-describedby="whatsApp_number" type="number" maxlength="11" minlength="10"
+                        aria-describedby="whatsApp_number" type="text" maxlength="11" minlength="10"
                         data-inputmask="'mask': '0300-000000-0'" placeholder="03XX-XXXXXX-X" required>
                 </div>
 
@@ -179,7 +181,7 @@ PAF-IAST SEIMS | Sign Up
                     <!-- <input name="student_program" type="email" class="form-control" id="student_program" aria-describedby="student_program"> -->
                     <select name="student_program" value="" id="student_program" class="form-select"
                         aria-label="Default select example" required>
-                        <option value=""  disabled selected hidden> Select your class Type </option>
+                        <option value="" disabled selected hidden> Select your class Type </option>
                         <option value='pg' name="student_program">DS</option>
                         <option value='perp' name="student_program">AI</option>
                         <option value='kg' name="student_program">CS</option>
@@ -205,7 +207,7 @@ PAF-IAST SEIMS | Sign Up
 
                     <select name="student_blood" value="" id="student_blood" class="form-select"
                         aria-label="Default select example">
-                        <option value=""  disabled selected hidden> Select your Blood Group Type </option>
+                        <option value="" disabled selected hidden> Select your Blood Group Type </option>
                         <option value='A+' name="student_program">A RhD positive (A+)</option>
                         <option value='A-' name="student_program">A RhD negative (A-)</option>
                         <option value='B+' name="student_program">B RhD positive (B+)</option>
@@ -224,22 +226,25 @@ PAF-IAST SEIMS | Sign Up
 
         <!-- Elective subjects -->
         <div class="mb-3">
-            <label for="favourit_sport"  class="form-label">Enter the Favourit Sport</label>
-            <input name="favourit_sport" placeholder="Math Physicas Chemistry Computer"  value="" type="text" class="form-control"
-                id="favourit_sport" aria-describedby="favourit_sport" maxlength="100" minlength="4">
+            <label for="favourit_sport" class="form-label">Enter the Favourit Sport</label>
+            <input name="favourit_sport" placeholder="Math Physicas Chemistry Computer" value="" type="text"
+                class="form-control" id="favourit_sport" aria-describedby="favourit_sport" maxlength="100"
+                minlength="4">
         </div>
 
         <!-- Address of student  -->
         <div class="mb-3">
-            <label for="student_address"  class="form-label">Enter You Home Address</label>
-            <input name="student_address" value=""   placeholder="Mohalla Awaisia Town, Pindi Gheb - Attock Rd, Pindigheb, Attock, Punjab , Pakistan" type="text" class="form-control" id="student_address"
-                aria-describedby="student_address" maxlength="80" minlength="10" required>
+            <label for="student_address" class="form-label">Enter You Home Address</label>
+            <input name="student_address" value=""
+                placeholder="Mohalla Awaisia Town, Pindi Gheb - Attock Rd, Pindigheb, Attock, Punjab , Pakistan"
+                type="text" class="form-control" id="student_address" aria-describedby="student_address" maxlength="80"
+                minlength="10" required>
         </div>
 
 
+        <input type="submit" class="btn btn-primary"></input>
 </div>
 <br>
-<input type="submit" class="btn btn-primary"></input>
 
 <br>
 <br><br>

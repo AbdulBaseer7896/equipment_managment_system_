@@ -64,8 +64,6 @@ def login():
                 print(data)
                 return redirect(url_for('sport_officer_dashboard' , data = data))
             
-            elif session['role'] == 'dispach_man':
-                return redirect(url_for('dispach_man_dashboard' , data = data))
         else:
             print("NO match")
             flash(('Wrong email or password. Please try again.', 'fail_login'))
@@ -86,27 +84,6 @@ def sign_up_for_student():
 
 
 
-
-# @app.route("/forget_password", methods=["GET", "POST"])
-# def forget_password():
-#         if request.method == "GET":
-#         # if the request is a GET request, render the login form
-#         # flash("Welcome to the website!", "success")
-#             return render_template("Forget_password.html")
-#         elif request.method == 'POST':
-#             username = request.form['email_login']
-#             password = request.form['password_login']
-#             user_type = request.form['login-val']
-#             data = request.form.to_dict()
-            
-#             if obj.forget_password(data):
-#                 return render_template('login.html')
-#             else:
-#                 print("You email or user type is wrong")
-#                 return render_template('forget_password.html')        
-#         return render_template('login.html')
-
-# # create a dashboard route and view function for student
 @login_manager.user_loader
 def load_user(user_id):
     return User(int(user_id))
@@ -119,10 +96,3 @@ def logout():
 
     # Redirect to the login page
     return redirect(url_for('login'))
-
-
-
-# @app.route("/logout")
-# def logout():
-#     session.clear()
-#     return redirect(url_for("login"))
