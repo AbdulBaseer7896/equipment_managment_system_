@@ -79,7 +79,7 @@ def sign_up_for_student():
             data = request.form.to_dict()
             print("This data = = = " , data['student_email'])
             if obj.send_sign_up_data_to_db(data):
-                flash(("You will Sign in Successfully !!! Kindly login Now !!!" , "sign_done"))
+                flash(("You have Signed in Successfully !!! Kindly login Now !!!" , "sign_done"))
                 return render_template('login.html')
 
 

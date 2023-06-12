@@ -83,7 +83,7 @@ def cancal_booking():
         if request.method == "GET":
             return render_template('sport_officer_URLs/cancal_booking.html' , data = data , booking_data = booking_data)
     else:
-        flash(("Till Now you will not Approved any Booking !!!" , "you_not_approved_booking"))
+        flash(("Till Now you have not Approved any Booking !!!" , "you_not_approved_booking"))
         return render_template('sport_officer_URLs/sport_officer_dashboard.html' , data = data )
     
     if request.method == "POST":
@@ -92,7 +92,7 @@ def cancal_booking():
         cancle_booking_data = eval(result)
         print("This data = = = " , cancle_booking_data)
         obj.cancle_booking_data_from_db(cancle_booking_data)
-        flash(("You Cancle the Booking succesfully !!!" , "cancle_booking"))
+        flash(("You Have Cancelled the Booking succesfully !!!" , "cancle_booking"))
         return render_template('sport_officer_URLs/sport_officer_dashboard.html' , data = data )
 
 

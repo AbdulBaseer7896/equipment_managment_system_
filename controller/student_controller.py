@@ -57,7 +57,7 @@ def book_equipment():
         result = str(path) 
         path_new = eval(result)
         obj.stored_the_booking_information_in_bd(path_new , data_new)
-        flash(("You booking request is send to Sport Officer !!! Wait For Booking Approal !!!" , 'booking_request_send'))
+        flash(("Your booking request is send to Sport Officer !!! Wait For Booking Approal !!!" , 'booking_request_send'))
         return render_template('student_URLs/student_dashboard.html' , data = data)
 
 

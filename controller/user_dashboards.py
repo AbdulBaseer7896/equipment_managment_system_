@@ -21,7 +21,7 @@ def login_required(role):
 def student_dashboard():
     data = request.args.get('data')
     # Functionality for student dashboard
-    flash(('Dear student to Welcome  to PAF-IAST SEIMS  !!! You Successfull Login !!!' , 'student_login'))
+    flash(('Dear student Welcome  to PAF-IAST SEIMS  !!! You Successfull Login !!!' , 'student_login'))
     return render_template("student_URLs/student_dashboard.html", data = data)
 
 @app.route('/sport_officer/dashboard')

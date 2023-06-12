@@ -8,9 +8,6 @@ import mysql.connector
 from datetime import datetime
 import datetime
 
-
-# just a moder
-
 class sport_officer_model():
     engine = None
 
@@ -23,9 +20,9 @@ class sport_officer_model():
                     "ssl_ca": "/etc/ssl/cert.pem"
                 }
             })
-            print("connection build successfully")
+            print("connection built successfully")
         except:
-            print("not work")
+            print("not working")
 
 
                 
