@@ -6,7 +6,7 @@ from sqlalchemy import create_engine, text
 import os
 import mysql.connector
 from flask import Flask
-from flask_mail import Mail, Message
+
 
 class user_model():
     engine = None
