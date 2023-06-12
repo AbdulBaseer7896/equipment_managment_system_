@@ -81,3 +81,36 @@ def cheek_booking_aprovalment():
     else:
         flash(("Sorry Sports Officer has not Approved your Booking!!! Kindly Wait untill Your Booking Will be Approved" , 'no_booking_approved'))
         return render_template('student_URLs/student_dashboard.html' , data = data)
+    
+    
+    
+
+
+@app.route('/student/cancel_booking' ,  methods=["GET", "POST"] )
+@login_required('student')
+def cancel_booking():
+    data = request.args.get('data')
+    result = str(data) 
+    data_new = eval(result)
+    print("This is data of student profile " , data_new)
+    
+
+    if request.method == "GET":
+        booking_data = obj.take_student_cancle_booking_data_form_db(data_new)
+        if booking_data != []:
+            return render_template('student_URLs/cancel_booing.html' , data = data  , booking_data = booking_data )
+        else:
+            flash(("Sorry You have not Book any Equipmet!!! Kindly Book some Thing" , 'no_item_in_for_cancle'))
+            return render_template('student_URLs/student_dashboard.html' , data = data)
+    
+    if request.method == "POST":
+        print("This is post method")
+        path = request.args.get('paths')
+        data = request.args.get('data')
+        print("This is isisis s is is " , path)
+        result = str(path) 
+        cancle_booking_data = eval(result)
+        print("This data = = = " , cancle_booking_data)
+        obj.delete_booking_from_db(cancle_booking_data)
+        flash(("You Cancled your Booking succesfully !!!" , "cancled_booking"))
+        return render_template('student_URLs/student_dashboard.html' , data = data )

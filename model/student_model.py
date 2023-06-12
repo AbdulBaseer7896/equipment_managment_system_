@@ -78,8 +78,24 @@ class student_model():
             result = conn.execute(query1).fetchall()
             return result
         
-    
+        
+        
+
+        
+    def take_student_cancle_booking_data_form_db(self , data):
+        print("THis jii isdj 33     333333 = " , data)
+        with self.engine.connect() as conn:
+            query1 = text(f"SELECT * From equipmetns_booking where student_email = '{data['email_login']}';")
+            cheek = conn.execute(query1).fetchall()
+            return cheek
         
 
 
-
+    def delete_booking_from_db(self ,data):
+        print("This is important data and data = = = " , data)
+        print(data[2])
+        with self.engine.connect() as conn:                
+                query3 = text(f"DELETE From equipmetns_booking where product_name = '{data[0]}' And product_type = '{data[1]}' And student_email = '{data[2]}';")
+                conn.execute(query3)
+                print("They all run goood")
+        return True

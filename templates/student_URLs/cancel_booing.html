@@ -1,0 +1,61 @@
+{% extends 'student_URLs/student_temp.html' %}
+
+
+{% block title %}
+Studnet | Cancle Booking
+{% endblock title %}
+
+{% block mainbody %}
+
+
+
+<h1> This is student cancle booking page</h1>
+
+
+<div class="container">
+  
+  <div class="border-bottom row" style="margin-bottom:16px;padding-bottom:8px;">
+    {% for item in booking_data %}
+    {% if item[4] > 0 %}
+        
+    <div class="col-6" style="font-size: medium;">
+        <h4 
+        style="color:rgb(120,120,120); margin-bottom:4px;">
+    </h4>
+    <br>
+    <div>
+      Product Name:{{item[0]}}
+    </div>
+
+    <div>
+        Products Type:<b>{{item[2]}}</b>
+    </div>
+    <div>
+        Student Email:<b>{{item[4]}}</b>
+    </div>
+    <div>
+        Date of Booking:<b>{{item[4]}}</b>
+    </div>
+    <div>
+        Total Number of Products:<b>{{item[4]}}</b>
+    </div>
+      <div>
+        <form id="booking-form" action="{{ url_for('cancel_booking', paths=item , data = data) }}" method="post">
+            <button type="submit" class="btn btn-primary">Cancle Booking</button>
+        </form>
+    </div>
+    
+  </div>
+  <div class="col-2 padding-right:16px">
+      <img style="width: 180px; height: 200px;" src="/static/{{item[5]}}" alt="image">
+    </div>
+  <br><br><br>
+  <hr>
+  <br>
+  <br><br>
+  {% endif %}
+  {% endfor %}
+</div>
+
+
+{% endblock mainbody %}

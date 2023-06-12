@@ -23,6 +23,7 @@ class user_model():
         except:
             print("not work")
 
+
     def user_login_model(self, data):
         with self.engine.connect() as conn:
             query = text(f"SELECT * FROM user_login WHERE user_name = '{data['email_login']}' AND password = '{data['password_login']}' AND user_type = '{data['login-val']}';")
