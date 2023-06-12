@@ -16,7 +16,7 @@ from flask_login import LoginManager, login_required, current_user , login_user 
 from flask import session
 
 from flask import Flask, request, render_template
-from flask_mail import Mail
+
 
 app.secret_key = "your_secret_key_here"
 # create a LoginManager object
