@@ -6,7 +6,7 @@ import json
 from functools import wraps
 from flask import abort
 from flask_login import current_user
-
+import datetime
 obj = user_model()
 import flask_login
 
@@ -14,6 +14,9 @@ from flask import Flask, render_template, redirect, url_for , request
 from flask_login import LoginManager, login_required, current_user , login_user ,logout_user
 
 from flask import session
+
+from flask import Flask, request, render_template
+from flask_mail import Mail
 
 app.secret_key = "your_secret_key_here"
 # create a LoginManager object
@@ -82,6 +85,21 @@ def sign_up_for_student():
                 flash(("You have Signed in Successfully !!! Kindly login Now !!!" , "sign_done"))
                 return render_template('login.html')
 
+
+
+@app.route("/changed_password", methods=["GET", "POST"])
+def changed_password():
+        if request.method == "GET":
+            return render_template("changed_password.html")
+        if request.method == 'POST':
+            data = request.form.to_dict()
+            print("This data = = = " , data)
+            if obj.changed_password_from_db(data):
+                flash(("You Password will changed successfully !!! Kindly login Now !!!" , "changes_password_done"))
+                return render_template('login.html')
+            else:
+                flash(("You Old password or Email is incorrect" , "incorrect_email_password"))
+                return render_template("changed_password.html")
 
 
 @login_manager.user_loader

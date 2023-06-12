@@ -43,6 +43,15 @@ PAF-IAST SPORT | Log In
                     </button>
                 </h4>
             </div>
+
+            {% elif category == 'changes_password_done' %}
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <h4 class="alert-heading">{{ message }}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </h4>
+            </div>
             {% endif %}
         {% endfor %}
     {% endif %}
@@ -78,7 +87,9 @@ PAF-IAST SPORT | Log In
 
         <br>
         <br><br>
-        <a href= "{{url_for('sign_up_for_student') }}">Sign Up</a>
+        <a href= "{{url_for('sign_up_for_student') }}">Sign Up</a>  <br><br>
+
+        <a href= "{{url_for('changed_password') }}">Changed Password</a>
         <!-- <a href="url_for('forget_password')">Forget Password</a> -->
     </form>
 </div>
