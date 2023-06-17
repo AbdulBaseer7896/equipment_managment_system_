@@ -11,34 +11,34 @@ Student | Booking Aproval
 
 <section class="form-02-main login_page">
     <div class="container">
-  <br>
-  {% with messages = get_flashed_messages() %}
-{% if messages %}
-{% for message, category in messages %}
+        <br>
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        {% for message, category in messages %}
 
-{% if category == 'student_login' %}
-<div class="alert alert-success alert-dismissible fade show" role="alert">
-    <h4 class="alert-heading text-center">{{ message }}
-        <button type="button" class="close" item-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-        </button>
-    </h4>
-</div>
-{% elif category == 'no_notifiction_for_student' %}
-<div class="alert alert-dark alert-dismissible fade show" role="alert">
-    <h4 class="alert-heading text-center">{{ message }}
-        <button type="button" class="close" item-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-        </button>
-    </h4>
-</div>
+        {% if category == 'student_login' %}
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <h4 class="alert-heading text-center">{{ message }}
+                <button type="button" class="close" item-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </h4>
+        </div>
+        {% elif category == 'no_notifiction_for_student' %}
+        <div class="alert alert-dark alert-dismissible fade show" role="alert">
+            <h4 class="alert-heading text-center">{{ message }}
+                <button type="button" class="close" item-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </h4>
+        </div>
 
 
-{% endif %}
-{% endfor %}
-{% endif %}
+        {% endif %}
+        {% endfor %}
+        {% endif %}
 
-{% endwith %}
+        {% endwith %}
         <div class="row">
             <div class="col-md-12">
                 <div class="_lk_de">
@@ -46,52 +46,54 @@ Student | Booking Aproval
                         <div class="logo">
                             <img src="/static/images/public_images/user.png">
                         </div>
-  
+
                         <h1 class="text-center">You Approvel List</h1>
-                        <br><br><br>
+                        <br>
 
 
 
-<div class="container">
-  
-  <div class="border-bottom row" style="margin-bottom:16px;padding-bottom:8px;">
-    {% for item in booking_data %}
-    {% if item[4] > 0 %}
-        
-    <div class="col-6" style="font-size: medium;">
-        <h4 
-        style="color:rgb(120,120,120); margin-bottom:4px;">
-    </h4>
-    <br>
-    <div>
-      Product Name:{{item[0]}}
-    </div>
+                        <div class="container">
 
-    <div>
-        Products Type:<b>{{item[2]}}</b>
-    </div>
-    <div>
-        Student Email:<b>{{item[4]}}</b>
-    </div>
-    <div>
-        Date of Booking:<b>{{item[3]}}</b>
-    </div>
-    <div>
-        Total Number of Products:<b>{{item[4]}}</b>
-    </div>
+                            <div class="border-bottom row" style="margin-bottom:16px;padding-bottom:8px;">
+                                {% for item in booking_data %}
+                                {% if item[4] > 0 %}
 
-    
-  </div>
-  <div class="col-2 padding-right:16px">
-      <img style="width: 180px; height: 200px;" src="/static/{{item[5]}}" alt="image">
-    </div>
-  <br><br><br>
-  <hr>
-  <br>
-  <br><br>
-  {% endif %}
-  {% endfor %}
-</div>
+                                <div class="col-7" style="font-size: medium;">
+                                    <h4 style="color:rgb(120,120,120); margin-bottom:4px;">
+                                    </h4>
+                                    <br>
+                                    <div>
+                                        Product Name: <b>{{item[0]}}</b>
+                                    </div>
+
+                                    <div>
+                                        Products Type:<b>{{item[1]}}</b>
+                                    </div>
+                                 
+                                    <div>
+                                        Date of Booking:<b>{{item[3]}}</b>
+                                    </div>
+                                    <div>
+                                        Total Number of Products: <b>{{item[4]}}</b>
+                                    </div>
+                                    <div>
+                                        Student Email: <br> <b>{{item[2]}}</b>
+                                        <br><br>
+                                        <hr>
+                                    </div>
 
 
-{% endblock mainbody %}
+                                </div>
+                                <div class="col-5 padding-right:16px">
+                                    <img style="width: 180px; height: 200px;" src="/static/{{item[5]}}" alt="image">
+                                </div>
+                                <br><br><br>
+                                <hr>
+                                <br>
+                                <br><br>
+                                {% endif %}
+                                {% endfor %}
+                            </div>
+
+
+                            {% endblock mainbody %}

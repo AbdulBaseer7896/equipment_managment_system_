@@ -60,7 +60,7 @@ Sport Officer | Approved Booking
   <div class="border-bottom row" style="margin-bottom:16px;padding-bottom:8px;">
     {% for item in booking_data %}
     {% if item[4] > 0 %}
-    <div class="col-6" style="font-size: medium;">
+    <div class="col-7" style="font-size: medium;">
         <h4 
         style="color:rgb(120,120,120); margin-bottom:4px;">
     </h4>
@@ -72,24 +72,28 @@ Sport Officer | Approved Booking
     <div>
         Products Type:<b>{{item[1]}}</b>
     </div>
-    <div>
-        Student Email:<b>{{item[2]}}</b>
-    </div>
+
     <div>
         Date of Booking:<b>{{item[3]}}</b>
     </div>
     <div>
         Total Number of Products:<b>{{item[4]}}</b>
     </div>
-      <div>
-        <form id="booking-form" action="{{ url_for('cancal_booking', path=item) }}" method="POST">
-            <button type="submit" class="btn btn-primary">Cancle Booking</button>
-        </form>
+    <div>
+        Student Email: <br> <b>{{item[2]}}</b>
+        <br><br>
     </div>
+
     
   </div>
-  <div class="col-2 padding-right:16px">
+  <div class="col-5 padding-right:16px">
       <img style="width: 180px; height: 200px;" src="/static/{{item[5]}}" alt="image">
+    </div>
+
+    <div class="col-sm-12 col-lg-6">
+        <form id="booking-form" action="{{ url_for('cancal_booking', path=item) }}" method="POST">
+            <button type="submit" class="_btn_04">Cancle Booking</button>
+        </form>
     </div>
   <br><br><br>
   <hr>

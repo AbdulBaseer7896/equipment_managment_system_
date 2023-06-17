@@ -60,30 +60,34 @@ Student | Booking
     {% for item in equipment_data %}
     {% if item[2] > 0 %}
         
-    <div class="col-6" style="font-size: medium;">
+    <div class="col-7" style="font-size: medium;">
         <h4 
         style="color:rgb(120,120,120); margin-bottom:4px;">
     </h4>
     <br>
     <div>
-      Product Name:{{item[0]}}
+      Product Name: <b>{{item[0]}}</b>
     </div>
 
     <div>
-        Products Avaibles:<b>{{item[2]}}</b>
+        Products Avaibles: <b>{{item[2]}}</b>
     </div>
     <div>
-        Products descipation:<b>{{item[4]}}</b>
+        Products descipation: <br><b>{{item[4]}}</b>
     </div>
-      <div>
-        <form id="booking-form" action="{{ url_for('book_equipment', path=item, data=data) }}" method="POST">
-            <button type="submit" class="btn btn-primary">BOOK ME</button>
-        </form>
-    </div>
+
     
   </div>
-  <div class="col-2 padding-right:16px">
+  <div class="col-5 padding-right:16px">
       <img style="width: 180px; height: 200px;" src="/static/{{item[5]}}" alt="image">
+    </div>
+
+    <div class="col-sm-12 col-lg-6">
+        <br>
+        <form id="booking-form" action="{{ url_for('book_equipment', path=item, data=data) }}" method="POST">
+            <button type="submit" class="_btn_04">BOOK ME</button>
+            <br><br>
+        </form>
     </div>
   <br><br><br>
   <hr>

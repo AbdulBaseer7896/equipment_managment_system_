@@ -8,39 +8,57 @@ Sport Officer | Store
 {% block mainbody %}
 
 
-{% with messages = get_flashed_messages() %}
-{% if messages %}
-{% for message, category in messages %}
+<section class="form-02-main login_page">
+    <div class="container">
+        <br>
 
-{% if category == 'student_login' %}
-<div class="alert alert-success alert-dismissible fade show" role="alert">
-    <h4 class="alert-heading">{{ message }}
-        <button type="button" class="close" item-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-        </button>
-    </h4>
-</div>
-{% elif category == 'no_notifiction_for_student' %}
-<div class="alert alert-dark alert-dismissible fade show" role="alert">
-    <h4 class="alert-heading">{{ message }}
-        <button type="button" class="close" item-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-        </button>
-    </h4>
-</div>
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        {% for message, category in messages %}
+        
+        {% if category == 'student_login' %}
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <h4 class="alert-heading">{{ message }}
+                <button type="button" class="close" item-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </h4>
+        </div>
+        {% elif category == 'no_notifiction_for_student' %}
+        <div class="alert alert-dark alert-dismissible fade show" role="alert">
+            <h4 class="alert-heading">{{ message }}
+                <button type="button" class="close" item-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </h4>
+        </div>
+        
+        
+        {% endif %}
+        {% endfor %}
+        {% endif %}
+        
+        {% endwith %}
+        
+        
+
+        
+        
 
 
-{% endif %}
-{% endfor %}
-{% endif %}
+        <div class="row">
+            <div class="col-md-12">
+                <div class="_lk_de">
+                    <div class="form-04-main">
+                        <div class="logo">
+                            <img src="/static/images/public_images/user.png">
+                        </div>
 
-{% endwith %}
+                        <h1 class="text-center">Equipment Store</h1>
+                        <br><br>
 
 
 
-
-
-<h1> This is sport officer Store page</h1>
 
 
 <div class="container">
@@ -48,13 +66,13 @@ Sport Officer | Store
   <div class="border-bottom row" style="margin-bottom:16px;padding-bottom:8px;">
     {% for item in store_data %}
         
-    <div class="col-6" style="font-size: medium;">
+    <div class="col-7" style="font-size: medium;">
         <h4 
         style="color:rgb(120,120,120); margin-bottom:4px;">
     </h4>
     <br>
     <div>
-      Product Name: {{item[0]}}
+      Product Name: <b>{{item[0]}}</b>
     </div>
 
     <div>
@@ -67,11 +85,11 @@ Sport Officer | Store
         Avaible in store: <b>{{item[2]}}</b>
     </div>
     <div>
-        Product Descipation: <b>{{item[4]}}</b>
+        Product Descipation: <br> <b>{{item[4]}}</b>
     </div>
     
   </div>
-  <div class="col-2 padding-right:16px">
+  <div class="col-5 padding-right:16px">
       <img style="width: 180px; height: 200px;" src="/static/{{item[5]}}" alt="image">
     </div>
   <br><br><br>
