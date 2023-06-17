@@ -1,14 +1,28 @@
 {% extends 'sport_officer_URLs/sport_officer_temp.html' %}
 
 
-
 {% block title %}
-Sport Officer | Add Equipments
+Sport Officer | Approved Booking
 {% endblock title %}
 
 {% block mainbody %}
 
-<h1> This is sport officer add equipment page</h1>
+
+<section class="form-02-main login_page">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="_lk_de">
+                    <div class="form-03-main">
+                        <div class="logo">
+                            <img src="/static/images/public_images/user.png">
+                        </div>
+
+                        <h1 class="text-center">Add New Equipments</h1>
+                        <br><br>
+
+
+
 
 <div class=" container big-font">
     <form action="{{ url_for('add_new_equipments') }}" method="post" enctype="multipart/form-data">
@@ -16,7 +30,7 @@ Sport Officer | Add Equipments
 
         <!-- product_name -->
         <div class="row">
-            <div class="col-md-3">
+            <div class="col-md-12">
                 <div class="mb-3">
                     <label for="product_name" class="form-label">Name of Product</label>
                     <input name="product_name" value="" type="text" class="form-control" id="product_name"
@@ -24,14 +38,14 @@ Sport Officer | Add Equipments
                 </div>
             </div>
 
-            <div class="col-md-3">
+            <div class="col-md-12">
                 <div class="mb-3">
                     <label for="quantity_of_product" class="form-label">Quantity of product</label>
                     <input name="quantity_of_product" value="" class="form-control" id="quantity_of_product"
                         aria-describedby="quantity_of_product" type="number" required>
                 </div>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-12">
                 <div class="mb-3">
                     <label for="type_of_product" class="form-label">For which Type of sport</label>
                     <!-- <input name="type_of_product" value="" class="form-control" id="type_of_product"
@@ -48,7 +62,7 @@ Sport Officer | Add Equipments
                 </div>
             </div>
             
-            <div class="col-md-3">
+            <div class="col-md-12">
                 <div class="mb-3">
                     <label  class="form-label">Picture of Product</label>
                     <input name="image_of_product" class="form-control" type="file">
@@ -75,7 +89,9 @@ Sport Officer | Add Equipments
         </div>
 
         <br>
-        <input type="submit" class="btn btn-primary"></input>
+        <div class="form-group">
+            <button type="submit" class="_btn_04">Submit</button>
+        </div>
         
         
     </div>

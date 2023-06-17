@@ -2,19 +2,22 @@
 
 
 {% block title %}
-Sport Officer | HOME
+Sport Officer | Approved Booking
 {% endblock title %}
 
 {% block mainbody %}
 
 
-{% with messages = get_flashed_messages() %}
+<section class="form-02-main login_page">
+    <div class="container">
+        <br>
+        {% with messages = get_flashed_messages() %}
 {% if messages %}
 {% for message, category in messages %}
 
 {% if category == 'Sport_officer_login' %}
 <div class="alert alert-success alert-dismissible fade show" role="alert">
-    <h4 class="alert-heading">{{ message }}
+    <h4 class="alert-heading text-center ">{{ message }}
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>
         </button>
@@ -22,7 +25,7 @@ Sport Officer | HOME
 </div>
 {% elif category == 'cancle_booking' %}
 <div class="alert alert-success alert-dismissible fade show" role="alert">
-    <h4 class="alert-heading">{{ message }}
+    <h4 class="alert-heading text-center">{{ message }}
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>
         </button>
@@ -30,7 +33,7 @@ Sport Officer | HOME
 </div>
 {% elif category == 'equipment_upload' %}
 <div class="alert alert-success alert-dismissible fade show" role="alert">
-    <h4 class="alert-heading">{{ message }}
+    <h4 class="alert-heading text-center">{{ message }}
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>
         </button>
@@ -39,7 +42,7 @@ Sport Officer | HOME
 
 {% elif category == 'approved_booking' %}
 <div class="alert alert-success alert-dismissible fade show" role="alert">
-    <h4 class="alert-heading">{{ message }}
+    <h4 class="alert-heading text-center">{{ message }}
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>
         </button>
@@ -48,7 +51,7 @@ Sport Officer | HOME
 
 {% elif category == 'you_not_approved_booking' %}
 <div class="alert alert-dark alert-dismissible fade show" role="alert">
-    <h4 class="alert-heading">{{ message }}
+    <h4 class="alert-heading text-center">{{ message }}
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>
         </button>
@@ -62,10 +65,97 @@ Sport Officer | HOME
 {% endwith %}
 
 
+        <div class="row">
+            <div class="col-md-12">
+                <div class="_lk_de">
+                    <div class="form-03-main">
+                        <div class="logo">
+                            <img src="/static/images/public_images/user.png">
+                        </div>
+
+                        <h1 class="text-center">Add New Equipments</h1>
+                        <br><br>
 
 
 
-<h1> This is Sport Officer home or Dashboard</h1>
+
+<div class=" container big-font">
+    <form action="{{ url_for('add_new_equipments') }}" method="post" enctype="multipart/form-data">
+
+
+        <!-- product_name -->
+        <div class="row">
+            <div class="col-md-12">
+                <div class="mb-3">
+                    <label for="product_name" class="form-label">Name of Product</label>
+                    <input name="product_name" value="" type="text" class="form-control" id="product_name"
+                        aria-describedby="product_name" required>
+                </div>
+            </div>
+
+            <div class="col-md-12">
+                <div class="mb-3">
+                    <label for="quantity_of_product" class="form-label">Quantity of product</label>
+                    <input name="quantity_of_product" value="" class="form-control" id="quantity_of_product"
+                        aria-describedby="quantity_of_product" type="number" required>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="mb-3">
+                    <label for="type_of_product" class="form-label">For which Type of sport</label>
+                    <!-- <input name="type_of_product" value="" class="form-control" id="type_of_product"
+                        aria-describedby="type_of_product" type="text"> -->
+
+                        <select name="type_of_product" value =""  id="type_of_product" class="form-select"   aria-label="Default select example" required>
+                            <option value=""  disabled selected hidden> Select your class type</option>
+                                <option value="Cricket">Cricket</option>
+                                <option value="Badminton">Badminton</option>
+                                <option value="Football">Football</option>
+                                <option value="Tennis">Tennis</option>
+                                <option value="BasketBall">BasketBall</option>
+                        </select>
+                </div>
+            </div>
+            
+            <div class="col-md-12">
+                <div class="mb-3">
+                    <label  class="form-label">Picture of Product</label>
+                    <input name="image_of_product" class="form-control" type="file">
+                </div>
+            </div>
+
+
+
+        </div>
+
+
+        <!-- Father name of teacher -->
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="mb-3">
+                    <label for="descipation" class="form-label">Write the descipation of Product</label>
+                    <!-- <input name="descipation"  type="text" class="form-control" id="descipation"
+                        aria-describedby="descipation" > -->
+                    <textarea name="descipation" type="text" class="form-control" id="descipation"
+                        aria-describedby="descipation" rows="4" cols="50" placeholder="Type some thing about Product" ></textarea>
+                </div>
+            </div>
+        </div>
+
+        <br>
+        <div class="form-group">
+            <button type="submit" class="_btn_04">Submit</button>
+        </div>
+        
+        
+    </div>
+<br>
+<br><br>
+
+</form>
+</div>
+
 
 
 

@@ -9,13 +9,16 @@ Student | Booking Aproval
 {% block mainbody %}
 
 
-{% with messages = get_flashed_messages() %}
+<section class="form-02-main login_page">
+    <div class="container">
+  <br>
+  {% with messages = get_flashed_messages() %}
 {% if messages %}
 {% for message, category in messages %}
 
 {% if category == 'student_login' %}
 <div class="alert alert-success alert-dismissible fade show" role="alert">
-    <h4 class="alert-heading">{{ message }}
+    <h4 class="alert-heading text-center">{{ message }}
         <button type="button" class="close" item-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>
         </button>
@@ -23,7 +26,7 @@ Student | Booking Aproval
 </div>
 {% elif category == 'no_notifiction_for_student' %}
 <div class="alert alert-dark alert-dismissible fade show" role="alert">
-    <h4 class="alert-heading">{{ message }}
+    <h4 class="alert-heading text-center">{{ message }}
         <button type="button" class="close" item-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>
         </button>
@@ -36,12 +39,17 @@ Student | Booking Aproval
 {% endif %}
 
 {% endwith %}
+        <div class="row">
+            <div class="col-md-12">
+                <div class="_lk_de">
+                    <div class="form-04-main">
+                        <div class="logo">
+                            <img src="/static/images/public_images/user.png">
+                        </div>
+  
+                        <h1 class="text-center">You Approvel List</h1>
+                        <br><br><br>
 
-
-
-
-
-<h1> This is Student  booking aproval page</h1>
 
 
 <div class="container">

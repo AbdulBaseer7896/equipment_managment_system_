@@ -8,79 +8,78 @@ Student | HOME
 {% block mainbody %}
 
 
-{% with messages = get_flashed_messages() %}
-{% if messages %}
-{% for message, category in messages %}
+<section class="form-02-main login_page">
+    <div class="container">
+        <br><br>
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        {% for message, category in messages %}
 
-{% if category == 'student_login' %}
-<div class="alert alert-success alert-dismissible fade show" role="alert">
-    <h4 class="alert-heading">{{ message }}
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-        </button>
-    </h4>
-</div>
-{% elif category == 'no_notifiction_for_student' %}
-<div class="alert alert-success alert-dismissible fade show" role="alert">
-    <h4 class="alert-heading">{{ message }}
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-        </button>
-    </h4>
-</div>
-{% elif category == 'booking_request_send' %}
-<div class="alert alert-success alert-dismissible fade show" role="alert">
-    <h4 class="alert-heading">{{ message }}
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-        </button>
-    </h4>
-</div>
+        {% if category == 'student_login' %}
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <h4 class="alert-heading text-center">{{ message }}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </h4>
+        </div>
+        {% elif category == 'no_notifiction_for_student' %}
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <h4 class="alert-heading text-center">{{ message }}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </h4>
+        </div>
+        {% elif category == 'booking_request_send' %}
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <h4 class="alert-heading text-center">{{ message }}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </h4>
+        </div>
 
-{% elif category == 'no_booking_approved' %}
-<div class="alert alert-danger alert-dismissible fade show" role="alert">
-    <h4 class="alert-heading">{{ message }}
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-        </button>
-    </h4>
-</div>
+        {% elif category == 'no_booking_approved' %}
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <h4 class="alert-heading text-center">{{ message }}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </h4>
+        </div>
 
-{% elif category == 'no_item_in_for_cancle' %}
-<div class="alert alert-danger alert-dismissible fade show" role="alert">
-    <h4 class="alert-heading">{{ message }}
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-        </button>
-    </h4>
-</div>
-
-
-{% elif category == 'cancled_booking' %}
-<div class="alert alert-danger alert-dismissible fade show" role="alert">
-    <h4 class="alert-heading">{{ message }}
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-        </button>
-    </h4>
-</div>
+        {% elif category == 'no_item_in_for_cancle' %}
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <h4 class="alert-heading text-center">{{ message }}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </h4>
+        </div>
 
 
-
-
-{% endif %}
-{% endfor %}
-{% endif %}
-
-{% endwith %}
+        {% elif category == 'cancled_booking' %}
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <h4 class="alert-heading text-center">{{ message }}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </h4>
+        </div>
 
 
 
 
+        {% endif %}
+        {% endfor %}
+        {% endif %}
 
-<h1> This is student home or Dashboard</h1>
+        {% endwith %}
 
 
 
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
-{% endblock mainbody %}
+
+        {% endblock mainbody %}

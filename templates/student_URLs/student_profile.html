@@ -13,16 +13,29 @@ Student | Profile
 
 {% block mainbody %}
 
-
+<section class="form-02-main login_page">
+    <div class="container">
+  
+        <div class="row">
+            <div class="col-md-12">
+                <div class="_lk_de">
+                    <div class="form-04-main">
+                        <div class="logo">
+                            <img src="/static/images/public_images/user.png">
+                        </div>
+  
+                        <h1 class="text-center">Student Profile</h1>
+                        <br>
+  
+  
 
 <div class="container">
     <div class="main-body">
         <div class="col-md-12 mb-3">
-            <div class="card">
+            <div class="">
                 <div class="card-body">
                     <div class="d-flex flex-column align-items-center text-center">
-                        <h4 class="text-secondary mb-1">Student Profile</h4>
-                        <br><br>
+
                         <img src="/static/{{profile_data[0][8]}}" alt="Admin" class="rounded-circle" width="150" onerror="this.src='https://bootdey.com/img/Content/avatar/avatar7.png'">
                         <div class="mt-3">
                             <h4>{{profile_data[0][0]}}</h4>
