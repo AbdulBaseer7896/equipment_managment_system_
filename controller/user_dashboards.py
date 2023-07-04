@@ -16,6 +16,7 @@ def login_required(role):
     return decorator
 
 
+
 @app.route('/student/dashboard' , methods=["GET", "POST"])
 @login_required('student')
 def student_dashboard():

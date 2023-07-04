@@ -23,7 +23,6 @@ def login_required(role):
 @app.route('/sport_officer/add_equipments' ,  methods=["GET", "POST"] )
 @login_required('sport_officer')
 def add_new_equipments():
-    print("This is student profile")
     data = request.args.get('data')
     if request.method == "GET":
         return render_template('sport_officer_URLs/add_new_equipments.html' , data = data )

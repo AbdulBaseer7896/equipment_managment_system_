@@ -13,7 +13,7 @@ class student_model():
 
     def __init__(self):
         try:
-            db_connection = os.environ.get('pafiast_db_connection')
+            db_connection = os.environ.get('pafiast_db_connection') 
             print(f"db_connection: {db_connection}")
             self.engine = create_engine(db_connection, connect_args={
                 "ssl": {
@@ -23,9 +23,7 @@ class student_model():
             print("connection build successfully")
         except:
             print("not work")
-
-
-                
+              
     def take_student_profile_data(self, data):
         print("The data os s = = = =", data['email_login'])
         with self.engine.connect() as conn:
