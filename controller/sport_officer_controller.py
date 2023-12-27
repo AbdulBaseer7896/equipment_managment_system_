@@ -6,6 +6,7 @@ from model.sport_officer_model import sport_officer_model
 import datetime
 
 
+
 obj = sport_officer_model()
 
 def login_required(role):
