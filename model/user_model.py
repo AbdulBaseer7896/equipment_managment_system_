@@ -1,10 +1,8 @@
-import mysql.connector
 import json
 from flask import flash
 from flask import make_response, render_template
 from sqlalchemy import create_engine, text
 import os
-import mysql.connector
 from flask import Flask
 
 
@@ -13,13 +11,15 @@ class user_model():
 
     def __init__(self):
         try:
-            db_connection = os.environ.get('pafiast_db_connection')
-            print(f"db_connection: {db_connection}")
-            self.engine = create_engine(db_connection, connect_args={
-                "ssl": {
-                    "ssl_ca": "/etc/ssl/cert.pem"
-                }
-            })
+            # db_connection = os.environ.get('pafiast_db_connection')
+            # self.engine = create_engine("mysql+pymysql://root@127.0.0.1:3306/Paf_Iast_EMS")
+
+            # self.engine = create_engine(db_connection, connect_args={
+            #     "ssl": {
+            #         "ssl_ca": "/etc/ssl/cert.pem"
+            #     }
+            # })
+            self.engine = create_engine("mysql+pymysql://root@127.0.0.1:3306/Paf_Iast_EMS")
             print("connection build successfully")
         except:
             print("not work")
@@ -36,27 +36,76 @@ class user_model():
             print(data['login-val'])
             return False
         
-        
-    def send_sign_up_data_to_db(self , data):
-        print("This is send sign up data to bd")
-        with self.engine.connect() as conn:
-            query1 = text(f"SELECT * FROM student_information WHERE student_email = '{data['student_email']}' or B_form_number = '{data['B_form_number']}';")
-            user = conn.execute(query1).fetchall()
-            print("Thus us user as you seee = " , user)
-            if user:
-                print("no this is work 00 ")
-                flash(("You Email or CNIC Number Is already Used !!! Kinldy used any other email or CNIC Number !!!" , "same_id_or_cnic_number"))
-                return render_template("sign_up_for_student.html")
-            else:
-                print("Now this will else")
-                query2 = text(f"INSERT INTO student_information VALUES ('{data['student_name']}', '{data['B_form_number']}', '{data['student_email']}', '{data['student_password']}', '{data['student_religion']}', '{data['student_gender']}', '{data['student_department']}', '{data['student_dob']}', '', '{data['whatsApp_number']}', '{data['student_program']}', '{data['student_blood']}', '{data['favourit_sport']}', '{data['student_address']}');")
-                conn.execute(query2)
-                print("This ins true as you see ")
+    
+
+
+    def send_sign_up_data_to_db(self, data):
+        if not self.engine:
+            print("No database connection!")
+            return False
+
+        try:
+            with self.engine.begin() as conn:  # Use begin() for transactions
+                # Check existing user
+                check_query = text("""
+                    SELECT * FROM student_information 
+                    WHERE student_email = :email OR B_form_number = :bform
+                """)
+                user = conn.execute(check_query, {
+                    'email': data['student_email'],
+                    'bform': data['B_form_number']
+                }).fetchall()
+
+                if user:
+                    flash(("Email/CNIC already exists!", "same_id_or_cnic_number"))
+                    return render_template("sign_up_for_student.html")
                 
-                query3 = text(f"INSERT INTO user_login VALUES ('{data['student_email']}', '{data['student_password']}', 'student');")
-                conn.execute(query3)
+                # Insert student information
+                insert_student = text("""
+                    INSERT INTO student_information VALUES (
+                        :name, :bform, :email, :password, 
+                        :religion, :gender, :dept, :dob, 
+                        :guardian, :whatsapp, :program, 
+                        :blood, :sport, :address
+                    )
+                """)
+                conn.execute(insert_student, {
+                    'name': data['student_name'],
+                    'bform': data['B_form_number'],
+                    'email': data['student_email'],
+                    'password': data['student_password'],
+                    'religion': data['student_religion'],
+                    'gender': data['student_gender'],
+                    'dept': data['student_department'],
+                    'dob': data['student_dob'],
+                    'guardian': '',  # Assuming guardian_contact column exists
+                    'whatsapp': data['whatsApp_number'],
+                    'program': data['student_program'],
+                    'blood': data['student_blood'],
+                    'sport': data['favourit_sport'],
+                    'address': data['student_address']
+                })
+
+                # Insert into user_login
+                insert_login = text("""
+                    INSERT INTO user_login VALUES (
+                        :email, :password, 'student'
+                    )
+                """)
+                conn.execute(insert_login, {
+                    'email': data['student_email'],
+                    'password': data['student_password']
+                })
+                
                 return True
+            
+        except Exception as e:
+            print(f"Database error: {str(e)}")
+            return False
         
+
+
+
     def changed_password_from_db(self , data):
         print("This i s data dat a = = " , data)
         print(data['email_login'])
